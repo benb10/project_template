@@ -1,0 +1,1 @@
+pnpm --prefix frontend/app run dev
