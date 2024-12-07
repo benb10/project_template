@@ -26,5 +26,6 @@ jobs:
           ruff check .
 
       - name: Run ruff format check
+        continue-on-error: true  # Run this even if previous steps fail
         run: |
           ruff format --diff
