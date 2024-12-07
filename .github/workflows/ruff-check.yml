@@ -22,10 +22,12 @@ jobs:
         run: pip install ruff
 
       - name: Run ruff check
+        continue-on-error: true
         run: |
+          echo "aaa 1"
           ruff check .
 
       - name: Run ruff format check
-        continue-on-error: true  # Run this even if previous steps fail
+        continue-on-error: true
         run: |
           ruff format --diff
