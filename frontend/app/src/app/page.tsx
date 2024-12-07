@@ -1,11 +1,34 @@
+'use client';
+
 import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
+
+import { Api } from './api'; // Adjust the import path as needed
 
 import styles from './page.module.css';
 
 export default function Home() {
+  const [title, setTitle] = useState<string>('');
+
+  // Fetch the HelloWorld message on component mount
+  useEffect(() => {
+    const fetchTitle = async () => {
+      try {
+        const data = await Api.getHelloWorld();
+        setTitle(data.message); // Set the message as title
+      } catch (error) {
+        console.error('Error loading hello world:', error);
+        setTitle('Error loading title');
+      }
+    };
+
+    fetchTitle();
+  }, []); // Empty dependency array ensures it runs only once on mount
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>
+        {title}
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>src/app/page.tsx</code>
