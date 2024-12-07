@@ -24,7 +24,6 @@ jobs:
       - name: Run ruff check
         if: always()
         run: |
-          echo "aaa 1"
           ruff check .
 
       - name: Run ruff format check
