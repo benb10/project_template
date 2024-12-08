@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  ruff-check:
+  run-pytest:
     runs-on: ubuntu-latest
 
     steps:
