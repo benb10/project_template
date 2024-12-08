@@ -30,7 +30,7 @@ export default function Home() {
       <div className={styles.description}>
         {title}
         backend url: {process.env.NEXT_PUBLIC_API_URL}
-        <br/>
+        <br />
         version: 3
         <p>
           Get started by editing&nbsp;
