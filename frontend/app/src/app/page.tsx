@@ -18,7 +18,7 @@ export default function Home() {
         setTitle(data.message); // Set the message as title
       } catch (error) {
         console.error('Error loading hello world:', error);
-        setTitle('Error loading title AA1');
+        setTitle('Error loading title AA2');
       }
     };
 
