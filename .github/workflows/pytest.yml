@@ -1,0 +1,29 @@
+name: Pytest on Pull Request
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run-pytest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
+      - name: Install requirements
+        run: |
+          pip install -r backend/app/requirements.txt
+          pip install -r backend/app/tests/requirements.txt
+
+      - name: Run pytest
+        if: always()
+        run: |
+          pytest

@@ -1,8 +1,6 @@
 from fastapi import FastAPI
-
-from fastadmin import fastapi_app as admin_app
-from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 
 app = FastAPI()
 
@@ -15,9 +13,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-
-app.mount("/admin", admin_app)
 
 
 @app.get("/hello_world")
