@@ -164,3 +164,5 @@ cython_debug/
 **/db.sqlite3
 **/.next
 **/node_modules
+
+**/.env.local
