@@ -10,7 +10,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",  # local
-        "https://project-template-beta.vercel.app/",  # prod
+        "https://project-template-beta.vercel.app",  # prod
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -24,7 +24,7 @@ async def health_check():
 
 @app.get("/version")
 async def version():
-    return {"version": "1"}
+    return {"version": "2"}
 
 @app.get("/hello_world")
 async def root():
