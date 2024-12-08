@@ -29,6 +29,7 @@ export default function Home() {
     <main className={styles.main}>
       <div className={styles.description}>
         {title}
+        backend url: {process.env.NEXT_PUBLIC_API_URL}
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>src/app/page.tsx</code>
