@@ -8,10 +8,11 @@ app = FastAPI()
 # Allowlist the local frontend (http://localhost:3000)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",  # local
-        "https://project-template-beta.vercel.app",  # prod
-    ],
+    # allow_origins=[
+    #     "http://localhost:3000",  # local
+    #     "https://project-template-beta.vercel.app",  # prod
+    # ],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -24,7 +25,7 @@ async def health_check():
 
 @app.get("/version")
 async def version():
-    return {"version": "2"}
+    return {"version": "3"}
 
 @app.get("/hello_world")
 async def root():
