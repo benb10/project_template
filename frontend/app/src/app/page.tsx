@@ -18,7 +18,7 @@ export default function Home() {
         setTitle(data.message); // Set the message as title
       } catch (error) {
         console.error('Error loading hello world:', error);
-        setTitle('Error loading title AA2');
+        setTitle('Error loading title');
       }
     };
 
@@ -30,6 +30,8 @@ export default function Home() {
       <div className={styles.description}>
         {title}
         backend url: {process.env.NEXT_PUBLIC_API_URL}
+        <br/>
+        version: 3
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>src/app/page.tsx</code>

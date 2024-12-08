@@ -22,10 +22,13 @@ app.add_middleware(
 async def health_check():
     return {"message": "OK"}
 
+@app.get("/version")
+async def version():
+    return {"version": "1"}
 
 @app.get("/hello_world")
 async def root():
-    return {"message": "Hello World2"}
+    return {"message": "Hello World"}
 
 
 class AddRequest(BaseModel):
