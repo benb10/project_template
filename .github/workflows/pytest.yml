@@ -3,7 +3,7 @@ name: pytest-PR
 on:
   pull_request:
     branches:
-      - main
+      - '*'
 
 jobs:
   pytest:

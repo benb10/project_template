@@ -30,9 +30,6 @@
 - ⚡️ Next.js 15 (App Router)
 - ⚛️ React 19
 - ⛑ TypeScript
-- 📏 ESLint 9 — To find and fix problems in your code
-- 💖 Prettier — Code Formatter for consistent style
-- 🐶 Husky — For running scripts before committing
 - 🚓 Commitlint — To make sure your commit messages follow the convention
 - 🖌 Renovate — To keep your dependencies up to date
 - 🚫 lint-staged — Run ESLint and Prettier against staged Git files

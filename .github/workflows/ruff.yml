@@ -3,7 +3,7 @@ name: ruff-PR
 on:
   pull_request:
     branches:
-      - main
+      - '*'
 
 jobs:
   ruff:

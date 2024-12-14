@@ -3,7 +3,7 @@ name: biome-PR
 on:
   pull_request:
     branches:
-      - main
+      - '*'
 
 jobs:
   biome:
