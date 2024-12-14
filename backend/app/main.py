@@ -5,16 +5,13 @@ from pydantic import BaseModel
 app = FastAPI()
 
 
-# Allowlist the local frontend (http://localhost:3000)
 app.add_middleware(
     CORSMiddleware,
-    # temp testing
-    # allow_origins=[
-    #     "http://localhost:3000",  # local
-    #     "https://project-template-beta.vercel.app",  # prod
-    # ],
-    allow_origins=["*"],
-    # allow_credentials=True,
+    allow_origins=[
+        "http://localhost:3000",  # local
+        "https://project-template-beta.vercel.app",  # prod
+    ],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -24,9 +21,11 @@ app.add_middleware(
 async def health_check():
     return {"message": "OK"}
 
+
 @app.get("/version")
 async def version():
     return {"version": "3"}
+
 
 @app.get("/hello_world")
 async def root():
