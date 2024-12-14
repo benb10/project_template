@@ -8,6 +8,7 @@ app = FastAPI()
 # Allowlist the local frontend (http://localhost:3000)
 app.add_middleware(
     CORSMiddleware,
+    # temp testing
     # allow_origins=[
     #     "http://localhost:3000",  # local
     #     "https://project-template-beta.vercel.app",  # prod
