@@ -1,4 +1,4 @@
-name: Pytest on Pull Request
+name: pytest-PR
 
 on:
   pull_request:

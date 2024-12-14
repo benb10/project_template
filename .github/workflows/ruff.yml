@@ -1,4 +1,4 @@
-name: Ruff Check on Pull Request
+name: ruff-PR
 
 on:
   pull_request:
