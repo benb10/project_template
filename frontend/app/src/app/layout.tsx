@@ -7,8 +7,9 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: `TypeScript starter for Next.js by João Pedro Schmitz`,
-	description: `TypeScript starter for Next.js that includes all you need to build amazing apps`,
+	title: "TypeScript starter for Next.js by João Pedro Schmitz",
+	description:
+		"TypeScript starter for Next.js that includes all you need to build amazing apps",
 };
 
 export default function RootLayout({

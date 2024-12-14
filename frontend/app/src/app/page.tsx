@@ -3,7 +3,7 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
-import { Api } from "./api"; // Adjust the import path as needed
+import Api from "./api";
 
 import styles from "./page.module.css";
 
