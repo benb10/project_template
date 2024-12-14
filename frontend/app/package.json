@@ -9,13 +9,12 @@
 	"scripts": {
 		"dev": "next dev --turbopack",
 		"build": "next build",
-		"start": "next start",
-		"postinstall": "husky"
+		"start": "next start"
 	},
 	"dependencies": {
 		"next": "15.0.3",
-		"react": "19.0.0-rc-69d4b800-20241021",
-		"react-dom": "19.0.0-rc-69d4b800-20241021"
+		"react": "18.2.0",
+		"react-dom": "18.2.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
