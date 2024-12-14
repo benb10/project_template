@@ -1,12 +1,14 @@
 name: biome-PR
 
 on:
-  push:
   pull_request:
+    branches:
+      - main
 
 jobs:
-  quality:
+  biome:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
