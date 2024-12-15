@@ -16,9 +16,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
+        working-directory: ./WEB
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
+          cache: 'npm'
       - name: Execute Unit tests
-      - run: pnpm test
+      - run: npm ci
+      - run: npm run test
