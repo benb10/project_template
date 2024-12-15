@@ -1,4 +1,4 @@
-name: biome-PR
+name: frontend_linter
 
 on:
   pull_request:

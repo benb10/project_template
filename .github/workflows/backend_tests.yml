@@ -1,4 +1,4 @@
-name: pytest-PR
+name: backend_tests
 
 on:
   pull_request:
