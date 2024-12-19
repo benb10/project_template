@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache-dependency-path: frontend/app/package-lock.json
+          cache-dependency-path: frontend/app/pnpm-lock.yaml
           cache: 'npm'
 
       - working-directory: frontend/app
