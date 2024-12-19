@@ -66,9 +66,7 @@ export default function Home() {
 				/>
 			</div>
 
-			<div className={styles.grid}>
-
-			</div>
+			<div className={styles.grid} />
 		</main>
 	);
 }

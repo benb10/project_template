@@ -1,42 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
-import { http } from 'msw';
-import { setupServer } from 'msw/node';
-import { beforeAll, afterEach, afterAll, vi, expect, test } from 'vitest';
+import { render, screen, waitFor } from "@testing-library/react";
+import { http, HttpResponse } from "msw";
+import { setupServer } from "msw/node";
+import React, { useEffect, useState } from "react";
+import { afterAll, afterEach, beforeAll, expect, test, vi } from "vitest";
 
-import Home from "../app/page"
+import Home from "../app/page";
 
-// Mock backend API responses using MSW
 const handlers = [
-  http.get('http://localhost:8000/hello_world', (req, res, ctx) => {
-    return res(
-      ctx.status(200),
-      ctx.json({ message: 'Hello World' })
-    );
-  }),
-
-  http.post('http://localhost:8000/add', (req, res, ctx) => {
-    const { nums } = req.body as { nums: number[] };
-    return res(
-      ctx.status(200),
-      ctx.json({ result: nums.reduce((acc, num) => acc + num, 0) })
-    );
-  }),
+	http.get("http://localhost:8000/hello_world", () => {
+		return HttpResponse.json({ message: "Hello World" });
+	}),
 ];
 
-// Set up the mock service worker
 const server = setupServer(...handlers);
-// Start and stop the mock service worker during tests
-beforeAll(() => server.listen())
-afterEach(() => server.resetHandlers())
-afterAll(() => server.close())
+beforeAll(() => server.listen());
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
 
+test("renders API data without crashing", async () => {
+	render(<Home />);
 
-// Test the component
-test('renders API data without crashing', async () => {
-  render(<Home />);
+	await waitFor(() => screen.getByText(/Hello World/));
+});
 
-  await waitFor(() => screen.getByText(/Hello World/));
-
-  expect(screen.getByText(/Hello World/)).toBeInTheDocument();
+test("test math", async () => {
+	expect(2 + 3).toBe(5);
 });
