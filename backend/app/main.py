@@ -7,14 +7,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.wsgi import WSGIMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
-from pydantic_settings import BaseSettings
-
-
-class Settings(BaseSettings):
-    test: str = "Awesome API"
-
-
-settings = Settings()
 
 app = FastAPI()
 
@@ -38,7 +30,6 @@ app.mount(
 
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
-os.environ.setdefault("DJANGO_CONFIGURATION", "Localdev")
 application = get_wsgi_application()
 app.mount("/django", WSGIMiddleware(application))
 
@@ -63,7 +54,7 @@ def hello_world():
 
 @app.get("/hello_world2")
 def hello_world2():
-    return {"a": os.getenv("test"), "b": settings.test}
+    return {"a": os.getenv("test")}
 
 
 class AddRequest(BaseModel):
