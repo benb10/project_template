@@ -1,9 +1,14 @@
+import os
+from importlib.util import find_spec
+
+from django.core.wsgi import get_wsgi_application
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.wsgi import WSGIMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 app = FastAPI()
-
 
 app.add_middleware(
     CORSMiddleware,
@@ -17,6 +22,19 @@ app.add_middleware(
 )
 
 
+app.mount(
+    "/django/static/",
+    StaticFiles(directory=os.path.normpath(os.path.join(find_spec("django.contrib.admin").origin, "..", "static"))),
+    name="static",
+)
+
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
+os.environ.setdefault("DJANGO_CONFIGURATION", "Localdev")
+application = get_wsgi_application()
+app.mount("/django", WSGIMiddleware(application))
+
+
 @app.get("/health_check")
 async def health_check():
     return {"message": "OK"}
@@ -28,7 +46,10 @@ async def version():
 
 
 @app.get("/hello_world")
-async def root():
+def hello_world():
+    from django.contrib.auth.models import User
+
+    User.objects.create_superuser(username="a@a.com", email="a@a.com", password="Password1.")
     return {"message": "Hello World"}
 
 
