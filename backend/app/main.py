@@ -7,6 +7,14 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.wsgi import WSGIMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
+from pydantic_settings import BaseSettings
+
+
+class Settings(BaseSettings):
+    test: str = "Awesome API"
+
+
+settings = Settings()
 
 app = FastAPI()
 
@@ -51,6 +59,11 @@ def hello_world():
 
     User.objects.create_superuser(username="a@a.com", email="a@a.com", password="Password1.")
     return {"message": "Hello World"}
+
+
+@app.get("/hello_world2")
+def hello_world2():
+    return {"a": os.getenv("test"), "b": settings.test}
 
 
 class AddRequest(BaseModel):
