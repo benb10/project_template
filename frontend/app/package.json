@@ -3,16 +3,13 @@
 	"description": "A TypeScript starter for Next.js that includes all you need to build amazing projects",
 	"version": "1.0.0",
 	"private": true,
-	"keywords": [
-		"nextjs",
-		"starter",
-		"typescript"
-	],
+	"keywords": ["nextjs", "starter", "typescript"],
 	"scripts": {
 		"dev": "next dev --turbopack",
 		"build": "next build",
 		"start": "next start",
-		"test": "vitest"
+		"test": "vitest",
+		"lint": "biome check --write ."
 	},
 	"dependencies": {
 		"next": "15.0.3",
