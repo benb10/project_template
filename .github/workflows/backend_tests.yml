@@ -17,11 +17,12 @@ jobs:
           python-version: "3.12"
 
       - name: Install requirements
+        working-directory: backend/app
         run: |
-          pip install -r backend/app/requirements.txt
-          pip install -r backend/app/tests/requirements.txt
+          pip install -e .
+          pip install -r tests/requirements.txt
 
       - name: Run pytest
-        if: always()
+        working-directory: backend/app
         run: |
-          pytest
+          pytest tests
