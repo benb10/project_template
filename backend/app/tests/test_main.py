@@ -1,10 +1,11 @@
 from fastapi.testclient import TestClient
 
-from ..main import app
+from main import app
 
 client = TestClient(app)
 
 
+# @pytest.mark.django_db
 def test_health_check():
     response = client.get("/health_check")
 
@@ -12,6 +13,7 @@ def test_health_check():
     assert response.json() == {"message": "OK"}
 
 
+# @pytest.mark.django_db
 def test_hello_world():
     response = client.get("/hello_world")
 

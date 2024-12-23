@@ -3,3 +3,6 @@ line-length = 120
 
 [tool.ruff.lint]
 extend-select = ["I"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "mysite.settings"
