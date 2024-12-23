@@ -10,11 +10,6 @@ from fastapi.middleware.wsgi import WSGIMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict
 
-# from dotenv import load_dotenv
-#
-# print("AAAA", os.getenv("DJANGO_SETTINGS_MODULE"))
-# load_dotenv(".env")
-# print("BBBB", os.getenv("DJANGO_SETTINGS_MODULE"))
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
 django.setup()
 
